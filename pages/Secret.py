@@ -20,7 +20,7 @@ def add_bg_from_local(image_file):
 add_bg_from_local('secret.png')
 
 st.image("logosecret.png", use_column_width=True)
-st.title("Secret recommandation system")
+st.title("Secret recommendation system")
 st.text_input("Movie Title",autocomplete=None)
 
 col1, col2, col3, col4, col5 = st.columns(5)
