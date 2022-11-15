@@ -7,6 +7,7 @@ import numpy as np
 import math
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NearestNeighbors
+from bokeh.models.widgets import Div
 
 
 primaryColor="#F63366"
@@ -38,6 +39,12 @@ st.image("logo.gif", use_column_width=True)
 
 df_ML =  pd.read_pickle('df_ML_poster.zip')
 
+if st.button('-18'):
+    js = "window.open('http://localhost:8501/Secret')"  # New tab or window
+    
+    html = '<img src onerror="{}">'.format(js)
+    div = Div(text=html)
+    st.bokeh_chart(div)
 
 movie  = st.multiselect("", df_ML, max_selections=1)
 
@@ -101,4 +108,6 @@ if button2 :
         
         st.image(df_ML.iloc[neighbor[1][0][5], 4432])
         st.markdown(df_ML.iloc[neighbor[1][0][5], 0])
+
+
 
