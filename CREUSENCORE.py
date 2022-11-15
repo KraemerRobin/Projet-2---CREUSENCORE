@@ -83,22 +83,35 @@ if button2 :
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.image(df_ML.iloc[neighbor[1][0][1], 4432])
-        st.markdown(df_ML.iloc[neighbor[1][0][1], 0])
+
     with col2:
-        
         st.image(df_ML.iloc[neighbor[1][0][2], 4432])
-        st.markdown(df_ML.iloc[neighbor[1][0][2], 0])
+        
     with col3:
-        
         st.image(df_ML.iloc[neighbor[1][0][3], 4432])
-        st.markdown(df_ML.iloc[neighbor[1][0][3], 0])
+
     with col4:
-        
         st.image(df_ML.iloc[neighbor[1][0][4], 4432])
-        st.markdown(df_ML.iloc[neighbor[1][0][4], 0])
-    with col5:
         
+    with col5:
         st.image(df_ML.iloc[neighbor[1][0][5], 4432])
+        
+
+    col1, col2, col3, col4, col5 = st.columns(5)    
+
+    with col1:
+        st.markdown(df_ML.iloc[neighbor[1][0][1], 0])
+
+    with col2:
+        st.markdown(df_ML.iloc[neighbor[1][0][2], 0])
+
+    with col3:
+        st.markdown(df_ML.iloc[neighbor[1][0][3], 0])
+
+    with col4:
+        st.markdown(df_ML.iloc[neighbor[1][0][4], 0])
+
+    with col5:
         st.markdown(df_ML.iloc[neighbor[1][0][5], 0])
 
 
