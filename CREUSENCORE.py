@@ -39,12 +39,6 @@ st.image("logo.gif", use_column_width=True)
 
 df_ML =  pd.read_pickle('df_ML_poster.zip')
 
-if st.button('-18'):
-    js = "window.open('http://localhost:8501/Secret')"  # New tab or window
-    
-    html = '<img src onerror="{}">'.format(js)
-    div = Div(text=html)
-    st.bokeh_chart(div)
 
 movie  = st.multiselect("", df_ML, max_selections=1)
 
