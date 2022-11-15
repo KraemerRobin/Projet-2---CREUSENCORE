@@ -43,20 +43,20 @@ df_ML =  pd.read_pickle('df_ML_poster.zip')
 movie  = st.multiselect("", df_ML, max_selections=1)
 
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1 : 
 	weight_genre = st.slider('Genre', min_value=1, max_value=4, step=1, key='test')
-	weight_year = st.slider('Year', min_value=1, max_value=4, step=1, key='test2')
-	weight_popularity = st.slider('Popularity', min_value=1, max_value=4, step=1, key='test22')
+	
 with col2 : 
-	weight_ratings = st.slider('Rating', min_value=1, max_value=4, step=1, key='test3',)
+	
 	weight_actor = st.slider('Actors', min_value=1, max_value=4, step=1, key='test4')
-	weight_director = st.slider('Director', min_value=1, max_value=4, step=1, key='test44')
+	
 with col3 : 	
-	weight_producer = st.slider('Producer', min_value=1, max_value=4, step=1, key='test5')
-	st.slider('Awards', min_value=1, max_value=4, step=1, key='test6')
-	st.slider('Country', min_value=1, max_value=4, step=1, key='test66')
+    weight_director = st.slider('Director', min_value=1, max_value=4, step=1, key='test44')
+
+with col4 :
+	weight_year = st.slider('Year', min_value=1, max_value=4, step=1, key='test2')
 
 
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -71,12 +71,10 @@ if button2 :
 	scaler = StandardScaler()
 	X_scaled = scaler.fit_transform(X)
 	X_scaled[:, 0] = X_scaled[:, 0]*(weight_year)
-	X_scaled[:, 2] = X_scaled[:, 2]*(weight_ratings)
-	X_scaled[:, 3] = X_scaled[:, 3]*(weight_popularity)
 	X_scaled[:, 4:32] = X_scaled[:, 4:32]*(weight_genre)
 	X_scaled[:, 32:2284] = X_scaled[:, 32:2284]*(weight_actor)
 	X_scaled[:, 2284:3501] = X_scaled[:, 2284:3501]*(weight_director)
-	X_scaled[:, 3501::] = X_scaled[:, 3501::]*(weight_producer)
+	
 	distanceKNN = NearestNeighbors(n_neighbors=6).fit(X_scaled)
 	neighbor = distanceKNN.kneighbors(X_scaled[df_ML['primaryTitle'] == movie[0]])
 	
