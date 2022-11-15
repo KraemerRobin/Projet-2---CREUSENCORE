@@ -22,9 +22,6 @@ add_bg_from_local('secret.png')
 st.image("logosecret.png", use_column_width=True)
 st.title("Secret recommandation system")
 st.text_input("Movie Title",autocomplete=None)
-st.multiselect(
-    'Category',
-    ['Milf', 'Teen', 'Mature', 'Gay','lesbian','Trans','Shaved','Hairy','BBC','Anal'])
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col3 : 
