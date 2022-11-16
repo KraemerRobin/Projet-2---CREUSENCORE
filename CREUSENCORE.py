@@ -66,6 +66,11 @@ with col3 :
 	button2 =st.button("Dig it up")
 
 if button2 : 
+    col1, col2, col3 = st.columns(3)
+    with col2 : 
+        st.image(df_ML.iloc[neighbor[1][0][0], 4432])	
+	
+if button2 : 
 	col1, col2, col3, col4, col5 = st.columns(5)
 	X = df_ML.drop(columns = ['primaryTitle', 'Poster', 'tconst'])
 	scaler = StandardScaler()
