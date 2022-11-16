@@ -63,12 +63,7 @@ col1, col2, col3, col4, col5 = st.columns(5)
 
 
 with col3 : 
-	button2 =st.button("Dig it up")
-
-if button2 : 
-    col1, col2, col3 = st.columns(3)
-    with col2 : 
-        st.image(df_ML.iloc[neighbor[1][0][0], 4432])	
+	button2 =st.button("Dig it up")	
 	
 if button2 : 
 	col1, col2, col3, col4, col5 = st.columns(5)
@@ -82,7 +77,11 @@ if button2 :
 	
 	distanceKNN = NearestNeighbors(n_neighbors=6).fit(X_scaled)
 	neighbor = distanceKNN.kneighbors(X_scaled[df_ML['primaryTitle'] == movie[0]])
-	
+
+if button2 : 
+    col1, col2, col3 = st.columns(3)
+    with col2 : 
+        st.image(df_ML.iloc[neighbor[1][0][0], 4432])
 
 if button2 : 
     col1, col2, col3, col4, col5 = st.columns(5)
