@@ -69,7 +69,7 @@ if button2 :
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
         with st.spinner('Digging...'):
-        	X = df_ML.drop(columns = ['primaryTitle', 'Poster', 'tconst'])
+        	X = df_ML.drop(columns = ['title_movie', 'Poster', 'tconst'])
         	scaler = StandardScaler()
         	X_scaled = scaler.fit_transform(X)
         	X_scaled[:, 0] = X_scaled[:, 0]*(weight_year)
@@ -78,7 +78,7 @@ if button2 :
         	X_scaled[:, 2284:3501] = X_scaled[:, 2284:3501]*(weight_director)
         	
         	distanceKNN = NearestNeighbors(n_neighbors=6).fit(X_scaled)
-        	neighbor = distanceKNN.kneighbors(X_scaled[df_ML['primaryTitle'] == movie[0]])
+        	neighbor = distanceKNN.kneighbors(X_scaled[df_ML['title_movie'] == movie[0]])
 
 
 if button2 : 
